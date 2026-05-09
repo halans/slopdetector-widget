@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI SlopDetector Test</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      line-height: 1.6;
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+    #slop-widget-container {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      z-index: 9999;
+    }
+  </style>
+</head>
+<body>
+  <h1>AI SlopDetector Widget Test</h1>
+  <p>This is some example text to see how the slop detector reacts. We need to make sure we have at least 100 characters so that the widget can pick it up. 
+    Let's add some more text here to reach the threshold. Stakeholders and synergies will definitely help us leverage our paradigm shift.</p>
+  <p>We need robust methodologies to pivot seamlessly into the cloud infrastructure, delivering highly available solutions that drive actionable insights for all key stakeholders.</p>
+  <!-- when we pass in {includeSelectors: ['.short']} the widget would not be displayed as it is too short to verify -->
+  <p class="short">This text is too short in itself to verify.</p>
+
+  <div class="private-content" style="background: #fdf2f8; padding: 15px; border-left: 4px solid #db2777; margin: 20px 0;">
+    <strong>🔒 Private Section:</strong> This text contains sensitive information (like my secret API key: sk_live_123456789) and should NOT be sent to the SlopDetector API for analysis.
+  </div>
+
+  <div id="slop-widget-container"></div>
+
+  <!-- Include the built widget -->
+  <script src="./dist/widget.iife.js"></script>
+  <script>
+    // Initialize the widget
+    window.addEventListener('load', () => {
+      SlopDetector.init('slop-widget-container', {
+        includeSelectors: ['body'], // Only analyze the body (default behavior, shown for example. Use p for only paragraph elements, or a classname like '.short', or an element id like '#my-element'.)
+        excludeSelectors: ['.private-content']
+      });
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,149 @@
+.slop-container {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  color: #333;
+}
+
+.slop-bubble {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-weight: bold;
+  font-size: 16px;
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  user-select: none;
+}
+
+.slop-bubble:hover {
+  transform: scale(1.05);
+  box-shadow: 0 6px 16px rgba(0,0,0,0.2);
+}
+
+.slop-bubble.green {
+  background: linear-gradient(135deg, #10b981, #059669);
+}
+
+.slop-bubble.yellow {
+  background: linear-gradient(135deg, #f59e0b, #d97706);
+}
+
+.slop-bubble.red {
+  background: linear-gradient(135deg, #ef4444, #dc2626);
+}
+
+.slop-modal-backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.4);
+  backdrop-filter: blur(4px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 999999;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+.slop-modal-backdrop.visible {
+  opacity: 1;
+  visibility: visible;
+}
+
+.slop-modal {
+  background: white;
+  border-radius: 12px;
+  padding: 24px;
+  max-width: 400px;
+  width: 90%;
+  box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+  transform: translateY(20px);
+  transition: transform 0.3s ease;
+  position: relative;
+}
+
+.slop-modal-backdrop.visible .slop-modal {
+  transform: translateY(0);
+}
+
+.slop-modal-close {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  background: none;
+  border: none;
+  font-size: 24px;
+  cursor: pointer;
+  color: #999;
+  line-height: 1;
+  padding: 4px;
+}
+
+.slop-modal-close:hover {
+  color: #333;
+}
+
+.slop-modal-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 16px;
+}
+
+.slop-modal-score {
+  font-size: 32px;
+  font-weight: 800;
+}
+
+.slop-modal-title {
+  font-size: 18px;
+  font-weight: 600;
+  margin: 0;
+  color: #111;
+}
+
+.slop-modal-class {
+  font-size: 14px;
+  color: #666;
+  margin-top: 4px;
+}
+
+.slop-modal-explanation {
+  font-size: 14px;
+  line-height: 1.5;
+  color: #444;
+  margin-bottom: 16px;
+}
+
+.slop-modal-patterns {
+  border-top: 1px solid #eee;
+  padding-top: 16px;
+}
+
+.slop-modal-patterns-title {
+  font-size: 12px;
+  text-transform: uppercase;
+  color: #888;
+  letter-spacing: 0.5px;
+  margin-bottom: 8px;
+}
+
+.slop-pattern {
+  display: inline-block;
+  background: #f1f5f9;
+  border: 1px solid #e2e8f0;
+  padding: 4px 8px;
+  border-radius: 16px;
+  font-size: 12px;
+  margin-right: 6px;
+  margin-bottom: 6px;
+  color: #475569;
+}
