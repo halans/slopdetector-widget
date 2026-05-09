@@ -1,6 +1,6 @@
 # SlopDetector Widget
 
-The SlopDetector widget is a lightweight, embeddable JavaScript widget that plugs into any webpage. It scans the visible text on the page, analyzes it using the SlopDetector API (`https://api.slopdetector.me/api/analyze`), and displays a "slop score" in a color-coded bubble.
+The SlopDetector widget is a lightweight, embeddable JavaScript widget that plugs into any webpage. It scans the visible text on the page, analyzes it using the SlopDetector API (`https://api.slopdetector.me/api/analyze` using `https://github.com/halans/ai-pattern-detection`), and displays a "slop score" in a color-coded bubble.
 
 The higher the score, the more likely the content is considered "slop" (e.g., AI-generated filler, business jargon, etc.). 
 
@@ -16,16 +16,26 @@ The higher the score, the more likely the content is considered "slop" (e.g., AI
 - **Privacy Controls:** Supports `includeSelectors` and `excludeSelectors` configuration options to strictly control which parts of your webpage are sent to the API, protecting sensitive data.
 - **Security (XSS Prevention):** All API responses are rigorously HTML-escaped before rendering to protect the host site against Cross-Site Scripting (XSS) vulnerabilities.
 
+![SlopDetector Widget](./slopdetector_widget.png)
+
+![SlopDetector Widget Modal](./slopdetector_widget_modal.png)
+
 ## Installation & Building
 
 To build the distributable widget from source:
 
-1. Install dependencies:
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/halans/slopdetector-widget.git
+   cd slopdetector-widget
+   ```
+
+2. Install dependencies:
    ```bash
    npm install
    ```
 
-2. Build the project using Vite:
+3. Build the project using Vite:
    ```bash
    npm run build
    ```
@@ -64,7 +74,7 @@ To run a local test page to preview changes to the widget:
 npm run dev
 ```
 
-**Note on CORS:** The development server is explicitly configured to run on `http://localhost:3000`. The API server (`api.slopdetector.me`) has a CORS whitelist for this specific localhost port, allowing you to fetch the actual score data during local testing without encountering Cross-Origin blocked requests.
+**Note on CORS:** The development server is explicitly configured to run on `http://localhost:3000`. The API server (`api.slopdetector.me`) has a CORS whitelist for this specific localhost port, allowing you to fetch the actual score data during local testing without encountering Cross-Origin blocked requests. You can fork and run https://github.com/halans/ai-pattern-detection as your own API server, and update the API endpoint in the widget's `index.html` to point to your own API server.
 
 ### Testing
 
